@@ -9,7 +9,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@drawable/_bc08da3fab8d0903a7f56aa00fe9b7a"
-        tools:context=".SignUpActivity">
+        tools:context=".Activities.SignUpActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -56,6 +56,7 @@
                 android:id="@+id/signup_password"
                 android:background="@drawable/custom_edittext"
                 android:hint="Enter Password"
+                android:inputType="textPassword"
                 android:textColorHint="@color/white"
                 android:layout_marginBottom="15dp"
                 android:padding="20dp"/>

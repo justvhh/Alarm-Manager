@@ -9,7 +9,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@drawable/_bc08da3fab8d0903a7f56aa00fe9b7a"
-        tools:context=".SignInActivity">
+        tools:context=".Activities.SignInActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -56,6 +56,7 @@
                 android:hint="Enter Password"
                 android:textColorHint="@color/white"
                 android:layout_marginBottom="15dp"
+                android:inputType="textPassword"
                 android:padding="20dp"/>
         <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"

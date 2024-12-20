@@ -1,14 +1,17 @@
-package com.example.pj1
+package com.example.pj1.Activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.pj1.MainActivity
+import com.example.pj1.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +35,12 @@ class SignInActivity : AppCompatActivity() {
                         Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
-                    }.addOnFailureListener {
-                        Toast.makeText(this, "Sign in failed: " + it.message, Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener { exception ->
+                        if (exception is FirebaseAuthInvalidUserException) {
+                            Toast.makeText(this, "Username does not exist", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Sign in failed: " + exception.message, Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
                 else {
